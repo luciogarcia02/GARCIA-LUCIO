@@ -5,3 +5,5 @@ config
 
 #structure helper
 structure.txt
+
+.vscode/
