@@ -7,12 +7,12 @@ var flagsRepo = require('../src/repositories/flags')
 router.patch('/capture/:id', async function(req, res, next) {
     if(!flagsRepo.flagExists(req.params.id)){
         return res.status(400).json({
-            message: "FLAG_NOT_FOUND"
+            errorMsg: "MISSING_FLAG"
           })
     }
 
     let data = await flagsRepo.captureFlagById(req.params.id);
-    console.log("LA BANDERA "+req.params.id+" HA SIDO CAPTURADA!!");
+    console.log("FLAG "+req.params.id+" CAPTURED.");
     return res.status(200).json(data);
   });
 
